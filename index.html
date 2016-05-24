@@ -9,8 +9,8 @@
 <body ng-controller="mainCtrl">
 	<div class="container">
 	<form class="row">
-		<input class="input-field col s6" type="text" ng-model="filterQuote"> 
-		<button class="waves-effect waves-light btn filter-btn col s3">Filter Quotes</button>
+		<input class="input-field col s6 push-s1" type="text" ng-model="filterQuote"> 
+		<button class="waves-effect waves-light btn filter-btn">Filter Quotes</button>
 		</form>
 		<div class="row">
 		<div ng-repeat="quote in quotes | filter: filterQuote"  class="card-panel col s3 quote-card">
