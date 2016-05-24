@@ -16,15 +16,13 @@ The first step whenever you're setting up an Angular App is to set up your found
 * In your app.js file set up 'home' for your angular app like below. Take note how you're going to include the [] as the second parameter. This tells Angular that you want to create a new module rather than just use an existing one. In all other files, we won't be using the [] because we want to use the module which has already been set.
 
 ```javascript
-var app = angular.module('quoteBook', []);
+angular.module('quoteBook', []);
 ```
 
 * Now in your mainCtrl.js file set up your first controller (mainCtrl). The code will look like this
 
 ```javascript
-var app = angular.module('quoteBook');
-
-app.controller('mainCtrl', function($scope){
+angular.module('quoteBook').controller('mainCtrl', function($scope){
 
 });
 ```
