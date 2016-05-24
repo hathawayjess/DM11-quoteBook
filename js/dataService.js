@@ -1,6 +1,4 @@
-var app = angular.module('quoteBook');
-
-app.service('dataService', function() {
+angular.module('quoteBook').service('dataService', function() {
   var quotes = [
     { text: 'Life isn\'t about getting and having, it\'s about giving and being.', author: 'Kevin Kruse'},
     { text: 'Whatever the mind of man can conceive and believe, it can achieve', author: 'Napoleon Hill'},
@@ -12,14 +10,22 @@ app.service('dataService', function() {
   ];
 
   this.getData = function() {
+    if(localStorage.quotes) {
+        quotes = JSON.parse(localStorage.getItem('quotes'));
+      }
   	return quotes;
   };
-  this.addData = function(dataObj) {
-  	if (dataObj.text && dataObj.author) {
-  		quotes.push(dataObj);
-  	}
-  };
+  this.addData = function(obj) {
+      localStorage.removeItem('quotes');
+      if (obj.hasOwnProperty('text') && obj.hasOwnProperty('author')) {
+        quotes.push(obj);
+        localStorage.setItem('quotes', angular.toJson(quotes)); //using JSON.stringify instead of angular.toJson will conflict with ng-repeat
+      } else {
+        return;
+      }
+    };
   this.removeData = function(text) {
   			quotes.splice(text, 1);
+        localStorage.setItem('quotes', angular.toJson(quotes));
   };
 });
