@@ -22,3 +22,14 @@ h3, p {
 .container {
 	margin: 0 auto;
 }
+
+.right {
+	float: right;
+	padding-right: 15px;
+}
+
+.float-right {
+	float: right;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
